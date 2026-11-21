@@ -3,31 +3,157 @@
 @theme inline {
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-foreground-secondary: var(--foreground-secondary);
   --color-muted: var(--muted);
   --color-card: var(--card);
   --color-border: var(--border);
   --color-highlight: var(--highlight);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+  --color-danger-foreground: var(--danger-foreground);
+  --color-info: var(--info);
+  --font-sans: Inter, "Noto Sans Sinhala", "Noto Sans Tamil", system-ui, sans-serif;
+  --shadow-sm: 0 1px 2px rgb(15 23 42 / 0.06);
+  --shadow-md: 0 8px 24px rgb(15 23 42 / 0.10);
+  --shadow-lg: 0 20px 40px rgb(15 23 42 / 0.14);
 }
 
 :root {
-  font-family: Inter, "Noto Sans Sinhala", "Noto Sans Tamil", system-ui, sans-serif;
-  color: #263746;
-  background: #f5f8fa;
+  font-family: var(--font-sans);
+  color: var(--foreground);
+  background: var(--background);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
-  --primary: #102a43;
+  --primary: #142d4e;
   --primary-foreground: #ffffff;
-  --background: #f5f8fa;
-  --foreground: #263746;
-  --muted: #e8eef2;
+  --secondary: #0f9d91;
+  --secondary-foreground: #ffffff;
+  --accent: #f4b942;
+  --accent-foreground: #142d4e;
+  --background: #f8fafc;
+  --foreground: #1e293b;
+  --foreground-secondary: #64748b;
+  --muted: #f1f5f9;
   --card: #ffffff;
-  --border: #d3dfe7;
-  --highlight: #f4b544;
+  --border: #e2e8f0;
+  --highlight: #f4b942;
+  --success: #15803d;
+  --warning: #b45309;
+  --danger: #b91c1c;
+  --danger-foreground: #ffffff;
+  --info: #0369a1;
+  --radius-sm: 0.375rem;
+  --radius-md: 0.625rem;
+  --radius-lg: 1rem;
+  --radius-full: 9999px;
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --z-sticky: 30;
+  --z-overlay: 40;
+  --z-dialog: 50;
+  --z-toast: 60;
+}
+
+:root[data-theme="dark"] {
+  --primary: #93c5fd;
+  --primary-foreground: #0f172a;
+  --secondary: #5eead4;
+  --secondary-foreground: #0f172a;
+  --accent: #fbbf24;
+  --accent-foreground: #0f172a;
+  --background: #0f172a;
+  --foreground: #e2e8f0;
+  --foreground-secondary: #94a3b8;
+  --muted: #1e293b;
+  --card: #172033;
+  --border: #334155;
+  --highlight: #fbbf24;
+  --success: #4ade80;
+  --warning: #fbbf24;
+  --danger: #f87171;
+  --danger-foreground: #0f172a;
+  --info: #38bdf8;
+}
+
+.portal-auth-background {
+  background: radial-gradient(ellipse at 12% 20%, #cbdcf8 0%, transparent 46%), radial-gradient(ellipse at 90% 85%, #c9e6e3 0%, transparent 42%), var(--background);
+}
+
+:root[data-theme="dark"] .portal-auth-background {
+  background: radial-gradient(ellipse at 12% 20%, #20345d 0%, transparent 46%), radial-gradient(ellipse at 90% 85%, #123d40 0%, transparent 42%), var(--background);
+}
+
+.portal-auth-visual {
+  background: linear-gradient(145deg, #102d54 0%, #142348 54%, #123d61 100%);
+  isolation: isolate;
+}
+
+.portal-auth-orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.portal-auth-orb-one {
+  width: 26rem;
+  height: 26rem;
+  top: -15rem;
+  right: -9rem;
+  background: radial-gradient(circle at 30% 30%, #9be8ed, #2193b2 42%, #294b99 75%);
+  box-shadow: 0 0 90px #4ccdc855;
+}
+
+.portal-auth-orb-two {
+  width: 18rem;
+  height: 18rem;
+  right: -10rem;
+  bottom: 8%;
+  background: radial-gradient(circle at 30% 25%, #f7c879, #e88086 38%, #a3498e 70%, #32377d);
+  box-shadow: inset 12px 12px 35px #ffffff33, 0 0 70px #ae4b8c44;
+}
+
+.portal-auth-orb-three {
+  width: 18rem;
+  height: 18rem;
+  left: -9rem;
+  bottom: -13rem;
+  background: radial-gradient(circle at 65% 25%, #74d7da, #286aab 55%, #1a326c);
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body {
-  min-width: 320px;
   margin: 0;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
 }

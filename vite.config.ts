@@ -6,5 +6,5 @@ import { defineConfig } from 'vite';
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   resolve: { alias: { '@': fileURLToPath(new URL('./src', import.meta.url)) } },
-  server: { port: 5175, strictPort: true },
+  server: { port: 5174, strictPort: true },
 });
